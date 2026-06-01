@@ -43,7 +43,8 @@ class AuthController extends Controller
     {
         // check if the email exist
         $user = User::where('Email', $request->email)->first();
-
+        $adminEmail = 'admin@gmail.com';
+        $adminPass = '123';
         // if email doesnt exist or password isnt same with the password on the data, it'll return an error toast msg
         if (!$user || !Hash::check($request->password, $user->Password)) {
             return back()->with('error', 'Invalid credentials.');

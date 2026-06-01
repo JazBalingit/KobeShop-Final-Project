@@ -13,6 +13,9 @@
 </head>
 
 <body style="background-color: #070707fa;">
+
+    @include('includes.toast')
+
     <!-- ========== HEADER =========== -->
     <nav class="navbar fixed-top navbar-expand-lg border-bottom border-warning border-3" data-bs-theme="dark"
         style="font-family:Georgia, 'Times New Roman', Times, serif; background-color: #000000;">
@@ -52,7 +55,7 @@
                         </ul>
                     </li>
                     @else
-                    <a class="btn btn-outline-warning ms-3 me-3" href="">Log In</a>
+                    <a class="btn btn-outline-warning ms-3 me-3" href="{{ route('login') }}">Log In</a>
                     @endif
                 </ul>
             </div>

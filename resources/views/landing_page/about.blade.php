@@ -52,7 +52,7 @@
                         </ul>
                     </li>
                     @else
-                    <a class="btn btn-outline-warning ms-3 me-3" href="">Log In</a>
+                    <a class="btn btn-outline-warning ms-3 me-3" href="{{ route('login') }}">Log In</a>
                     @endif
                 </ul>
             </div>
