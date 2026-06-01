@@ -13,15 +13,23 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    protected $table = 'tbl_users';
+    protected $primaryKey = 'StaffID';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'LastName',
+        'FirstName',
+        'MiddleName',
+        'Email',
+        'Gender',
+        'Password',
+        'Role',
+        'UserProfile',
     ];
 
     /**
@@ -45,5 +53,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // add this relationship
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'StaffID', 'StaffID');
     }
 }
