@@ -139,7 +139,15 @@
                         @foreach($users as $user)
                         <tr>
                             <td> S - {{ $user->StaffID }}</td>
-                            <td><img style="border-radius: 100%; height: 50px; width: 50px;" src="/uploads/{{ $user->UserProfile }}" alt=""></td>
+                            <td>
+                                @if ($user->UserProfile)
+                                <img style="border-radius: 100%; height: 50px; width: 50px;" src="/uploads/{{ $user->UserProfile }}" alt="">
+                                @else
+                                <img style="border-radius: 100%; height: 50px; width: 50px;" src="/uploads/defaultpic.jpg" alt="">
+                                @endif
+                            </td>
+
+
                             <td>{{ $user->LastName . ',' . ' ' . $user->FirstName . ' ' . $user->MiddleName }}</td>
                             <td>{{ $user->Gender }}</td>
                             <td>{{ $user->Email }}</td>
@@ -360,8 +368,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-
-        Chart.defaults.color = '#6c757d';
+Chart.defaults.color = '#6c757d';
 Chart.defaults.borderColor = '#2a2a2a';
 
 new Chart(document.getElementById('lineChart'), {
@@ -415,6 +422,7 @@ new Chart(document.getElementById('donutChart'), {
     }
 });
         
+
         const editModal = document.getElementById('edit-user-modal');
 
         editModal.addEventListener('show.bs.modal', function(event) {

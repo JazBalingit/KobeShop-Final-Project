@@ -250,16 +250,24 @@
             </div>
         </div>
         <!-- paragraph -->
+        @if(session('user'))
+        <div class="text-secondary mb-4 fs-5 fs-md-4" style="font-family:'Times New Roman', serif;">
+            You have now an access to our new releases, exclusive colorways, and stories from the court.
+        </div>
+        @else
         <div class="text-secondary mb-4 fs-5 fs-md-4" style="font-family:'Times New Roman', serif;">
             Sign up for early access to new releases, exclusive colorways, and stories from the court.
         </div>
+        @endif
         <!-- button -->
+        @if(!session('user'))
         <div class="d-flex flex-column text-uppercase flex-md-row justify-content-center gap-3"
             style="font-family:'Times New Roman', Times, serif;">
-            <a class="btn btn-warning border-2 border-dark py-2 py-md-3 px-3 px-md-4" href="">
+            <a class="btn btn-warning border-2 border-dark py-2 py-md-3 px-3 px-md-4" href="{{ route('signup') }}">
                 Create account now
             </a>
         </div>
+        @endif
     </div>
     <!-- ====== CONTENT END OF 4th PART ====== -->
     <!-- ========== END OF CONTENT =========== -->

@@ -96,9 +96,15 @@
                         <tr>
                             <td>P - {{ $product->staff->StaffID }}</td>
                             <td>
+                                @if($product->staff->UserProfile)
                                 <img src="/uploads/{{ $product->staff->UserProfile }}"
                                     width="40" height="40"
                                     style="border-radius:50%; object-fit:cover;">
+                                @else
+                                <img src="/uploads/defaultpic.jpg"
+                                    width="40" height="40"
+                                    style="border-radius:50%; object-fit:cover;">
+                                @endif
                             </td>
                             <td>{{ $product->staff->FirstName }} {{ $product->staff->LastName }}</td>
                             <td>{{ $product->ProductID }}</td>
